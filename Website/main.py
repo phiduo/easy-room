@@ -42,12 +42,6 @@ def form():
 
         r = Reservation(name, email, telnr, dateFrom, dateTo, room)
 
-        db.session.add(r)
-        db.session.commit()
-        return redirect('/')
-
-        print(r.name)
-
         try:
             db.session.add(r)
             db.session.commit()
