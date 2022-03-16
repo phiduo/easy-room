@@ -1,2 +1,2 @@
 # easy-room
-A KT Communication Engineering Project
+A KT Communications Engineering Project
