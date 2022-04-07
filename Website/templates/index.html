@@ -1,73 +1,12 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Reservation</title>
-  <meta name="description" content="A simple HTML5 Template for new projects.">
-  <meta name="author" content="SitePoint">
-
-  <meta property="og:title" content="A Basic HTML5 Template">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
-  <meta property="og:description" content="A simple HTML5 Template for new projects.">
-  <meta property="og:image" content="image.png">
-
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-
+    <meta charset="UTF-8">
+    <title>Easy Room</title>
 </head>
-
 <body>
-<form action="http://127.0.0.1:5000" id="ft-form" method="POST" accept-charset="UTF-8">
-  <fieldset>
-    <legend>Für Person</legend>
-    <label>
-      Name
-      <input type="text" name="Name" required>
-    </label>
-    <div class="two-cols">
-      <label>
-        E-Mail-Adresse
-        <input type="email" name="E-Mail" required>
-      </label>
-      <label>
-        Telefonnummer
-        <input type="tel" name="Telefon">
-      </label>
-    </div>
-  </fieldset>
-  <fieldset>
-    <legend>Raum- und Terminwunsch</legend>
-    <div class="two-cols">
-      <label>
-        Von Bis
-        <input type="datetime-local" name="Von" required>
-      </label>
-      <div class="two-cols">
-        <label>
-            <input type="datetime-local" name="Bis" required>
-        </label>
-      </div>
-    </div>
-    <div class="dropdown">
-      <label>
-         Raum
-         <select name = "Raum">
-           <option value = "r1">Raum 1</option>
-           <option value = "r2">Raum 2</option>
-         </select>
-      </label>
-    </div>
-  </fieldset>
-  <div class="btns">
-    <input type="submit" value="Anfrage senden">
-  </div>
-</form>
+Welcome at Easy Room.
+
+<p><a href="{{ url_for('getForm') }}">Reserve room.</a></p>
 </body>
 </html>
