@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Easy Room</title>
-</head>
-<body>
-Welcome at Easy Room.
+    <head>
+        <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+        <meta charset="UTF-8">
+        <title>Easy Room</title>
 
-<p><a href="{{ url_for('getForm') }}">Reserve room.</a></p>
-</body>
+    </head>
+        <body>
+            <h1 class="head"> Welcome to Easy Room! </h1>
+                <div class="container">
+                    <button class="btn"><a class="text" href="{{ url_for('getForm') }}">Reserve Room</a></button>
+                </div>
+
+        </body>
 </html>
