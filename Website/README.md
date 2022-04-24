@@ -18,14 +18,14 @@ Beispiel:
 
 ## Schnittstellen und Funktionalitäten
 
-|Methode|Endpoint|Beschreibung|
-|---|---|---|
-|GET|/|Gibt [index.html](./templates/index.html) zurück.|
-|GET|/reservation|Gibt [reservation.html](./templates/reservation.html) zurück. Darin befindet sich ein Formular für die Reservierung eines Raums.|
-|GET|/admin|Gibt [admin_overview](./templates/admin_overview.html) zurück. In diesem HTML-File wird die Schnittstelle `/api/data` für die Ausgabe aller Reservierungen in einer Tabelle verwendet.|
-|GET|/api/data|Gibt alle Reservierungen zurück.|
-|GET|/isAvailable/{room} |Gibt zurück, ob der Raum verfügbar (`True`) oder besetzt (`False`) ist.|
-|GET|/done|Gibt [done.html](./templates/done.html) zurück.|
-|POST|/admin/delete|Hiermit kann ein Eintrag mittels eines Formulars in [reservation.html](./templates/reservation.html) gelöscht werden.|
-|POST|/reservation|Hiermit wird eine Reservierung mittels eines Formulars in [reservation.html](./templates/reservation.html) in die Datenbank gespeichert.|
+|Methode|Endpoint| Beschreibung                                                                                                                             |
+|---|---|------------------------------------------------------------------------------------------------------------------------------------------|
+|GET|/| Gibt [index.html](./templates/index.html) zurück.                                                                                        |
+|GET|/reservation| Gibt [reservation.html](./templates/reservation.html) zurück. Darin befindet sich ein Formular für die Reservierung eines Raums.         |
+|GET|/admin| Admin View (Flask-admin-package)                                                                                                         |
+|GET|/api/data| Gibt alle Reservierungen zurück.                                                                                                         |
+|GET|/isAvailable/{room} | Gibt zurück, ob der Raum verfügbar (`True`) oder besetzt (`False`) ist.                                                                  |
+|GET|/done| Gibt [done.html](./templates/done.html) zurück.                                                                                          |
+|POST|/admin/delete| Hiermit kann ein Eintrag mittels eines Formulars in [reservation.html](./templates/reservation.html) gelöscht werden.                    |
+|POST|/reservation| Hiermit wird eine Reservierung mittels eines Formulars in [reservation.html](./templates/reservation.html) in die Datenbank gespeichert. |
 
