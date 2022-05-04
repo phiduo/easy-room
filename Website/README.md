@@ -26,6 +26,5 @@ Beispiel:
 |GET|/api/data| Gibt alle Reservierungen zurück.                                                                                                         |
 |GET|/isAvailable/{room} | Gibt zurück, ob der Raum verfügbar (`True`) oder besetzt (`False`) ist.                                                                  |
 |GET|/done| Gibt [done.html](./templates/done.html) zurück.                                                                                          |
-|POST|/admin/delete| Hiermit kann ein Eintrag mittels eines Formulars in [reservation.html](./templates/reservation.html) gelöscht werden.                    |
 |POST|/reservation| Hiermit wird eine Reservierung mittels eines Formulars in [reservation.html](./templates/reservation.html) in die Datenbank gespeichert. |
 
