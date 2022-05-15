@@ -1,69 +1,84 @@
-from flask import Flask, render_template, request, redirect
-from flask_sqlalchemy import SQLAlchemy
+
+from flask import Flask, render_template, request, redirect, flash
 from datetime import datetime
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
+from model import Reservation, db, rooms
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///room-reservation.db'
-db = SQLAlchemy(app)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
+# init app
+db.init_app(app)
 
-class Reservation(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(200))
-    email = db.Column(db.String(300))
-    telnr = db.Column(db.Integer)
-    dateFrom = db.Column(db.DateTime)
-    dateTo = db.Column(db.DateTime)
-    room = db.Column(db.String(50))
+# admin
+admin = Admin(app)
+admin.add_view(ModelView(Reservation, db.session))
 
-    def __repr__(self):
-        return 'Reservation %r' % self.id
-
-    def __init__(self, name, email, telnr, dateFrom, dateTo, room):
-        self.name = name
-        self.email = email
-        self.telnr = telnr
-        self.dateFrom = dateFrom
-        self.dateTo = dateTo
-        self.room = room
-
-    def __str__(self):
-        return self.name + ', ' + str(self.dateFrom) + ' -->' + str(self.dateTo) + ", " + self.room
-
-
-@app.route('/', methods=['GET', 'POST'])
-def form():
+@app.route('/reservation', methods = ['GET', 'POST'])
+def getForm():
     if request.method == 'POST':
         content = request.form
-        name = content['Name']
-        email = content['E-Mail']
-        telnr = content['Telefon']
-        dateFrom = datetime.strptime(content['Von'], '%Y-%m-%dT%H:%M')
-        dateTo = datetime.strptime(content['Bis'], '%Y-%m-%dT%H:%M')
-        room = content['Raum']
+        name = content['name']
+        email = content['email']
+        telnr = content['tel']
+        date = datetime.strptime(content['date'], '%Y-%m-%d')
+        from_time = datetime.strptime(content['from'], '%H:%M')
+        to_time = datetime.strptime(content['to'], '%H:%M')
+        from_time = datetime.combine(datetime.date(date), datetime.time(from_time))
+        to_time = datetime.combine(datetime.date(date), datetime.time(to_time))
+        room = content['room']
 
-        r = Reservation(name, email, telnr, dateFrom, dateTo, room)
+        r = Reservation(name, email, telnr, date, to_time, from_time, room)
+
+        now = datetime.now()
+
+        #check if valid input
+        if (r.from_time > r.to_time) or (r.from_time < now) or (r.to_time < now):
+            flash('Time periode is not valid.')
+            return redirect('/reservation')
+
+
+        for reservation in Reservation.query.filter_by(room = r.room):
+            if (reservation.from_time <= r.from_time <= reservation.to_time) or (r.from_time <= reservation.from_time <= r.to_time):
+                flash('Period is not available.')
+                return redirect('/reservation')
 
         try:
             db.session.add(r)
             db.session.commit()
-            return redirect('/')
+            return redirect('/done')
+
         except:
-            return 'There was an issue...'
+            return 'There is a problem. Try again later.'
 
     else:
-        reservations = Reservation.query.order_by(Reservation.id)
-        return render_template('index.html')
+        return render_template('reservation.html')
 
+@app.route('/', methods = ['GET'])
+def getIndex():
+    return render_template('index.html', title = 'Welcome')
 
-@app.route('/admin', methods=['GET'])
-def getReservations():
-    reservations = Reservation.query.all()
-    l = []
-    for r in reservations:
-        l.append(str(r))
-    return str(l)
+@app.route('/api/data')
+def data():
+    return {'data': [reservation.to_dict() for reservation in Reservation.query]}
 
+@app.route('/isAvailable/<room>')
+def display(room):
+    if not rooms.__contains__(room):
+        return 'No room with name ' + room
+    now = datetime.now()
+    reservations = Reservation.query.filter_by(room = room)
+    for reservation in reservations:
+        if reservation.from_time <= now <= reservation.to_time:
+            return 'False'
+    return 'True'
+
+@app.route('/done', methods = ['GET'])
+def returnThankYou():
+    return render_template('done.html', title = 'Thank you!')
 
 if __name__ == "__main__":
     app.run(debug=True)
