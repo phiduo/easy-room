@@ -28,3 +28,8 @@
 .back {
     background-color: #25252A;
 }
+
+.flashmessage {
+    color: red;
+    text-align: center;
+}

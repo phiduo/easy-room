@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link rel="stylesheet" type="text/css" href="../static/css/reservation.css">
 </head>
+<h1 class="flashmessage">
 {% block content %}
     {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -19,6 +20,7 @@
         {% endif %}
     {% endwith %}
 {% endblock %}
+</h1>
 
 <body class="back">
     <h1 class="head">Please enter your information!</h1>
