@@ -10,8 +10,8 @@ Raspberry Pi 4 mit Raspberry Pi OS,
 vorausgesetzt. 
 `Python 3.8` und `pip` (normalerweise bereits mit Python mitverpackt) werden benötigt um das Projekt auszuführen.
 
-
-Installiere (bevorzugt in einer virtuellen Umgebung für Python) die benötigten Dependencies mittels:
+Begib dich in das Wurzelverzeichnis des Projekts, öffne darin das Terminal und führe folgenden Befehl aus
+um die benötigten Dependencies zu installieren (bevorzugt innerhalb einer virtuellen Umgebung für Python):
 ```
 pip install -r requirements.txt
 ```
@@ -19,8 +19,7 @@ pip install -r requirements.txt
 ## Starten
 
 Easy Room lässt sich ganz einfach mittels des Skripts `start.py` starten.
-Um das Skript auszuführen, begib dich in das Wurzelverzeichnis des Projekts, öffne darin das Terminal 
-und führe folgenden Befehl aus:
+Im selben Terminal führe folgenden Befehl aus:
 ```
 python3 start.py
 ```
