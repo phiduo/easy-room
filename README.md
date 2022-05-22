@@ -9,6 +9,10 @@ Raspberry Pi 4 mit Raspberry Pi OS,
 [Display](https://www.amazon.de/gp/product/B07WCRTKSF/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 vorausgesetzt. 
 `Python 3.8` und `pip` (normalerweise bereits mit Python mitverpackt) werden benötigt um das Projekt auszuführen.
+Installiere (bevorzugt in einer virtuellen Umgebung für Python) die benötigten Dependencies mittels:
+```
+pip install -r requirements.txt
+```
 
 ## Starten
 
