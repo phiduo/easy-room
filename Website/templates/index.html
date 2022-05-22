@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" type="text/css" href="../static/css/index.css">
-        <meta charset="UTF-8">
-        <title>Easy Room</title>
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+    <meta charset="UTF-8">
+    <title>Easy Room</title>
 
-    </head>
-        <body>
-            <h1 class="head"> Welcome to Easy Room! </h1>
-                <div class="container">
-                    <button class="btn"><a class="text" href="{{ url_for('getForm') }}">Reserve Room</a></button>
-                </div>
+</head>
+<body>
+<h1 class="head"> Welcome to Easy Room! </h1>
+<div class="container">
+    <button class="btn"><a class="text" href="{{ url_for('getForm') }}">Reserve Room</a></button>
+</div>
 
-        </body>
+<table>
+    <tr>
+        <th>From</th>
+        <th>To</th>
+    </tr>
+    {% for r in query %}
+    <tr>
+        <td>
+            {{r.from_time}}
+        </td>
+        <td>
+            {{r.to_time}}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
 </html>
