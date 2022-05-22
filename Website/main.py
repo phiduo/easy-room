@@ -87,14 +87,10 @@ def display():
 
 @app.route('/bycard/<name>')
 def reserveOnSite(name):
-    now = (datetime.now() + timedelta(minutes=1)).replace(second=0, microsecond=0) #one minute delay for the check below
+    now = datetime.now().replace(second=0, microsecond=0) #one minute delay for the check below
     then = now + timedelta(minutes=30)
     date = now.replace(hour=0, minute=0, second=0, microsecond=0)
     r = Reservation(name, date, then, now)
-
-    # check if valid input
-    if (r.from_time > r.to_time) or (r.from_time < now) or (r.to_time < now):
-        return 'False'
 
     for reservation in Reservation.query.all():
         if (reservation.from_time <= r.from_time <= reservation.to_time) or (
