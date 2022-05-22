@@ -27,4 +27,4 @@ Beispiel:
 | GET     | /isAvailable   | Gibt zurück, ob der Raum verfügbar (`True`) oder besetzt (`False`) ist. Zudem wird zurückgegeben, wie lange er noch verfügbar ist.                                                                |
 | GET     | /done          | Gibt [done.html](./templates/done.html) zurück.                                                                                                                                                   |
 | POST    | /reservation   | Hiermit wird eine Reservierung mittels eines Formulars in [reservation.html](./templates/reservation.html) in die Datenbank gespeichert.                                                          |
-| GET     | /bycard/<name> | Für <name> wird eine Reservierung von `datetime.now()` bis `datetime.now() + 30 min` eine Reservierung getätigt. Es wird zurückgegeben, ob die Reservierung möglich ist `True`oder nicht `False`. |
+| GET     | /bycard/`name` | Für `name` wird eine Reservierung von `datetime.now()` bis `datetime.now() + 30 min` getätigt. Es wird zurückgegeben, ob die Reservierung möglich ist `True` oder nicht `False`. |
