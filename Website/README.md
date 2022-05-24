@@ -6,12 +6,9 @@ Beispiel:
 ```json
 {
     "date": "Fri, 08 Apr 2022 00:00:00 GMT", 
-    "email": "max.mustermann@gmail.com", 
     "from_time": "Fri, 08 Apr 2022 17:10:00 GMT", 
     "id": 1, 
     "name": "Max Mustermann", 
-    "room": "room1", 
-    "telnr": 123456789, 
     "to_time": "Fri, 08 Apr 2022 19:10:00 GMT"
 }
 ```
