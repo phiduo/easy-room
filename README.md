@@ -30,5 +30,5 @@ Dadurch wird der Webserver hochgefahren und danach automatisch die Skripte für 
 ![Architektur](Architektur.png)
 
 * [Website/Flask-Webserver](/Website)
-* [NFC_Reader](/NFC Reader)
+* [NFC_Reader](/NFC_Reader)
 * [Display](/Display)
