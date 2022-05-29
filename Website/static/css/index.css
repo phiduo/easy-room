@@ -24,12 +24,24 @@
     padding: 0.5em 1.5em;
     background-color: white;
     text-align: center;
-    /*box-shadow: inset 0 0 0 0 blue;
-    transition: ease-out 0.3s;
-    outline: none;*/
 }
 
 .text {
     color: red;
     background-color: white;
+}
+
+.table {
+    color: white;
+    text-align:center;
+    margin-left:auto ;
+    margin-right:auto;
+    border: 1px solid white;
+    height: 10em;
+    border-spacing: 16px 8px;
+}
+
+.t {
+    color: white;
+    text-align:center;
 }

@@ -1,3 +1,12 @@
+.flashmessage {
+    color: red;
+    width: 100%;
+	height: 50vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .head {
     color: white;
     text-align: center;
@@ -13,12 +22,12 @@
 
     position: absolute;
     top: 100px;
-    right: 600px;
+    right: 900px;
+    text-align: center;
+    margin-left:auto ;margin-right:auto;
 
     color: white;
     background-color: #25252A;
-    /*width: 250px;
-    /*height: 200px;*/
 }
 
 .btns {
@@ -29,7 +38,3 @@
     background-color: #25252A;
 }
 
-.flashmessage {
-    color: red;
-    text-align: center;
-}
